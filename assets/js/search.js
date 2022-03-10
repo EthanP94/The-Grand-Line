@@ -2,8 +2,7 @@ let userInput = document.querySelector('#user-input')
 let searchButton = document.querySelector('.search-btn')
 let contentContainer = document.querySelector('.content-container')
 
-function getImage(event) {
-    event.preventDefault();
+function getImage() {
     let userInputValue = userInput.value
     let splitName = userInputValue.split(" ")
     if (splitName.length > 1) {
@@ -55,4 +54,7 @@ function getImage(event) {
     
 }
 
-searchButton.addEventListener("click", getImage);
+searchButton.addEventListener("click", function() {
+    contentContainer.textContent = "";
+    getImage();
+});
