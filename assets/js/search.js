@@ -17,10 +17,24 @@ function getImage(event) {
         })
         .then(function (data) {
         console.log(data);
-        for (let i=0; i< data.data.length; i++) {
-            let example = document.createElement('img')
-            example.setAttribute("src", data.data[i].images.jpg.image_url)
-            contentContainer.append(example)
+        let apiData = data.data
+        for (let i=0; i< apiData.length; i++) {
+            let animeTitle = document.createElement('h2')
+            animeTitle.classList.add("anime-title")
+            if (!apiData[i].title_english) {
+                animeTitle.textContent = apiData[i].title
+            } else {
+                animeTitle.textContent = apiData[i].title_english
+            }
+            let animeImage = document.createElement('img')
+            animeImage.setAttribute("src", apiData[i].images.jpg.image_url)
+            animeImage.classList.add("anime-image")
+            let animeSyn = document.createElement('p')
+            animeSyn.textContent = apiData[i].synopsis
+            animeSyn.classList.add("anime-synopsis")
+            contentContainer.append(animeTitle)
+            contentContainer.append(animeImage)
+            contentContainer.append(animeSyn)
         }
         });
     
