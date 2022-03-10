@@ -20,7 +20,7 @@ function getImage(event) {
         let apiData = data.data
         for (let i=0; i< apiData.length; i++) {
             let animeTitle = document.createElement('h2')
-            animeTitle.classList.add("anime-title")
+            animeTitle.classList.add("anime-title", "center")
             if (!apiData[i].title_english) {
                 animeTitle.textContent = apiData[i].title
             } else {
@@ -28,13 +28,21 @@ function getImage(event) {
             }
             let animeImage = document.createElement('img')
             animeImage.setAttribute("src", apiData[i].images.jpg.image_url)
-            animeImage.classList.add("anime-image")
+            animeImage.classList.add("anime-image", "center")
+            let animeRating = document.createElement('h6')
+            animeRating.textContent = "Rating: " + apiData[i].score
+            let animeGenres = document.createElement('h6')
+            let totalGenres = []
+            for (let j=0; j< apiData[i].genres.length; j++) {
+                totalGenres.push(apiData[i].genres[j].name)
+            }
+            animeGenres.textContent = "Genres: " + totalGenres.join(" ")
+            let animeStatus = document.createElement('h6')
+            animeStatus.textContent = "Status: " + apiData[i].status
             let animeSyn = document.createElement('p')
             animeSyn.textContent = apiData[i].synopsis
-            animeSyn.classList.add("anime-synopsis")
-            contentContainer.append(animeTitle)
-            contentContainer.append(animeImage)
-            contentContainer.append(animeSyn)
+            animeSyn.classList.add("anime-synopsis", "center")
+            contentContainer.append(animeTitle, animeImage, animeRating, animeGenres, animeStatus, animeSyn)
         }
         });
     
