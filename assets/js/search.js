@@ -30,7 +30,11 @@ function getImage(event) {
             animeImage.setAttribute("src", apiData[i].images.jpg.image_url);
             animeImage.classList.add("anime-image", "center");
             let animeRating = document.createElement('h6');
-            animeRating.textContent = "Rating: " + apiData[i].score;
+            if (!apiData[i].score) {
+                animeRating.textContent = "Rating: Not Available";
+            } else {
+                animeRating.textContent = "Rating: " + apiData[i].score;
+            }
             animeRating.classList.add("anime-info");
             let animeGenres = document.createElement('h6');
             let totalGenres = [];
