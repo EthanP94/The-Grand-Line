@@ -17,3 +17,16 @@ function handleSearchFromSubmit (event) {
 }   
 
 searchButton.addEventListener('click', handleSearchFromSubmit);
+// homepage search button above
+
+let backgrounds = ['./assets/images/backgrounds/demon-slayer.png',
+'./assets/images/backgrounds/berserk-2.png',
+'./assets/images/backgrounds/one-piece.png',
+'./assets/images/backgrounds/wp2771916.jpg'];
+
+let randomEndpoint = backgrounds[Math.floor(Math.random()*backgrounds.length)]
+
+document.body.style.background = "url("+randomEndpoint+")"
+
+
+    
