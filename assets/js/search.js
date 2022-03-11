@@ -66,13 +66,6 @@ genresListEl.addEventListener("click", function(event) {
         console.log(genre)
     
     requestUrl = "https://api.jikan.moe/v4/anime?genre=" 
-    // fetch(requestUrl)
-    // .then(function(response){
-    //     return response.json()
-    // })
-    // .then(function(data){
-    //     console.log(data)
-    // })
     getAnimeInfo()
     }
 
@@ -96,9 +89,8 @@ getSearch();
 
 
 searchButton.addEventListener("click", function() {
- feature/watch-merch-buttons
     contentContainer.textContent = "";
-    getImage();
+    getAnimeInfo();
 });
 
 let merchButton = document.querySelector(".jsMerchFunction")
@@ -112,7 +104,8 @@ merchButton.addEventListener("click", function() {
 });
 
 let merchUrl = "https://store.crunchyroll.com/collections/" + merchPage
-=======
+
+searchButton.addEventListener("click", function() {
     contentContainer.textContent = " ";
     userInputValue = userInput.value
     let splitName = userInputValue.split(" ")
