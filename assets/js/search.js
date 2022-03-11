@@ -55,6 +55,36 @@ function getAnimeInfo() {
     
 }
 
+
+// let genresEl = document.querySelector('.genres')
+// let genreRequestUrl = "https://api.jikan.moe/v4/anime?q=" + genresEl + ""
+
+// fetch (genreRequestUrl)
+// console.log(data.genres.name)
+
+
+let genresListEl = document.querySelector('.genres-list')
+
+genresListEl.addEventListener("click", function(event) {
+    console.log(event.target)
+    if (event.target.matches("a")) {
+        let genre = event.target.getAttribute("data-genre")
+        console.log(genre)
+    
+    requestUrl = "https://api.jikan.moe/v4/anime?genre=" + genre + ""
+    // fetch(requestUrl)
+    // .then(function(response){
+    //     return response.json()
+    // })
+    // .then(function(data){
+    //     console.log(data)
+    // })
+    getAnimeInfo()
+    }
+
+
+})
+
 function getSearch() {
     let searchInput = document.location.search.split("=").pop()
     if (searchInput === "top-10") {
