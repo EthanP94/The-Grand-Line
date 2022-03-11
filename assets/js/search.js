@@ -56,12 +56,6 @@ function getAnimeInfo() {
 }
 
 
-// let genresEl = document.querySelector('.genres')
-// let genreRequestUrl = "https://api.jikan.moe/v4/anime?q=" + genresEl + ""
-
-// fetch (genreRequestUrl)
-// console.log(data.genres.name)
-
 
 let genresListEl = document.querySelector('.genres-list')
 
@@ -71,7 +65,7 @@ genresListEl.addEventListener("click", function(event) {
         let genre = event.target.getAttribute("data-genre")
         console.log(genre)
     
-    requestUrl = "https://api.jikan.moe/v4/anime?genre=" + genre + ""
+    requestUrl = "https://api.jikan.moe/v4/anime?genre=" 
     // fetch(requestUrl)
     // .then(function(response){
     //     return response.json()
