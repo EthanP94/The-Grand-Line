@@ -46,6 +46,8 @@ function getAnimeInfo() {
             let animeSyn = document.createElement('p');
             animeSyn.textContent = apiData[i].synopsis;
             animeSyn.classList.add("anime-synopsis", "center");
+            let merchButton = createElement('button');
+            merchButton.textContent = "Buy Merch!";
             contentContainer.append(animeTitle, animeImage, animeRating, animeGenres, animeStatus, animeSyn);
         }
         });
@@ -87,6 +89,23 @@ getSearch();
 
 
 searchButton.addEventListener("click", function() {
+ feature/watch-merch-buttons
+    contentContainer.textContent = "";
+    getImage();
+});
+
+let merchButton = document.querySelector(".jsMerchFunction")
+
+let merchPage = document.querySelector("#user-input").value
+
+
+merchButton.addEventListener("click", function() {
+
+
+});
+
+let merchUrl = "https://store.crunchyroll.com/collections/" + merchPage
+=======
     contentContainer.textContent = " ";
     userInputValue = userInput.value
     let splitName = userInputValue.split(" ")
@@ -103,3 +122,4 @@ top10Button.addEventListener('click', function() {
     requestUrl = "https://api.jikan.moe/v4/anime?limit=10&order_by=score&sort=desc"
     getAnimeInfo();
 })
+ main
