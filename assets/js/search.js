@@ -3,6 +3,7 @@ let searchButton = document.querySelector('.search-btn')
 let contentContainer = document.querySelector('.content-container')
 let top10Button = document.querySelector('.top10-btn')
 
+
 let userInputValue;
 let requestUrl = "https://api.jikan.moe/v4/anime?q=" + userInputValue + "&type=tv"
 
@@ -66,10 +67,10 @@ genresListEl.addEventListener("click", function(event) {
         let genre = event.target.getAttribute("data-genre")
         console.log(genre)
     
-    requestUrl = "https://api.jikan.moe/v4/anime?genre=" 
+    requestUrl = "https://api.jikan.moe/v4/anime?genres=" + genre
+        console.log(requestUrl);
     getAnimeInfo()
     }
-
 
 })
 
@@ -80,31 +81,16 @@ function getSearch() {
         requestUrl = "https://api.jikan.moe/v4/anime?limit=10&order_by=score&sort=desc"
         getAnimeInfo();
     } else {
-        contentContainer.textContent= "";
-        requestUrl = "https://api.jikan.moe/v4/anime?q=" + searchInput + "&type=tv"
-        getAnimeInfo();
+        // searchInput = userInput.value;
+        contentContainer.textContent= "Let'search for some anime~";
+        // requestUrl = "https://api.jikan.moe/v4/anime?q=" + searchInput + "&type=tv"
+        // console.log(requestUrl);
+        // getAnimeInfo();
     }
 } 
 
 getSearch();
 
-
-searchButton.addEventListener("click", function() {
-    contentContainer.textContent = "";
-    getAnimeInfo();
-});
-
-let merchButton = document.querySelector(".jsMerchFunction")
-
-let merchPage = document.querySelector("#user-input").value
-
-
-// merchButton.addEventListener("click", function() {
-
-
-// });
-
-let merchUrl = "https://store.crunchyroll.com/collections/" + merchPage
 
 searchButton.addEventListener("click", function() {
     contentContainer.textContent = " ";
@@ -123,3 +109,15 @@ top10Button.addEventListener('click', function() {
     requestUrl = "https://api.jikan.moe/v4/anime?limit=10&order_by=score&sort=desc"
     getAnimeInfo();
 })
+ 
+
+let merchButton = document.querySelector(".jsMerchFunction")
+
+
+merchButton.addEventListener("click", function() {
+  
+    let merchUrl = "https://store.crunchyroll.com/collections/" + userInputValue
+    
+document.location(merchUrl)
+
+});
