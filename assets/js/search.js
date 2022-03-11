@@ -49,6 +49,8 @@ function getAnimeInfo() {
             let animeSyn = document.createElement('p');
             animeSyn.textContent = apiData[i].synopsis;
             animeSyn.classList.add("anime-synopsis", "center");
+            let merchButton = createElement('button');
+            merchButton.textContent = "Buy Merch!";
             contentContainer.append(animeTitle, animeImage, animeRating, animeGenres, animeStatus, animeSyn);
         }
         });
@@ -72,3 +74,15 @@ searchButton.addEventListener("click", function() {
     contentContainer.textContent = "";
     getImage();
 });
+
+let merchButton = document.querySelector(".jsMerchFunction")
+
+let merchPage = document.querySelector("#user-input").value
+
+
+merchButton.addEventListener("click", function() {
+
+
+});
+
+let merchUrl = "https://store.crunchyroll.com/collections/" + merchPage
