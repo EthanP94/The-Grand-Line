@@ -66,16 +66,9 @@ genresListEl.addEventListener("click", function(event) {
         console.log(genre)
     
     requestUrl = "https://api.jikan.moe/v4/anime?genre=" 
-    // fetch(requestUrl)
-    // .then(function(response){
-    //     return response.json()
-    // })
-    // .then(function(data){
-    //     console.log(data)
-    // })
+
     getAnimeInfo()
     }
-
 
 })
 
