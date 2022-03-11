@@ -66,8 +66,8 @@ genresListEl.addEventListener("click", function(event) {
         let genre = event.target.getAttribute("data-genre")
         console.log(genre)
     
-    requestUrl = "https://api.jikan.moe/v4/anime?genre=" 
-
+    requestUrl = "https://api.jikan.moe/v4/anime?genres=" + genre
+        console.log(requestUrl);
     getAnimeInfo()
     }
 
@@ -80,9 +80,11 @@ function getSearch() {
         requestUrl = "https://api.jikan.moe/v4/anime?limit=10&order_by=score&sort=desc"
         getAnimeInfo();
     } else {
-        contentContainer.textContent= "";
-        requestUrl = "https://api.jikan.moe/v4/anime?q=" + searchInput + "&type=tv"
-        getAnimeInfo();
+        // searchInput = userInput.value;
+        contentContainer.textContent= "Let'search for some anime~";
+        // requestUrl = "https://api.jikan.moe/v4/anime?q=" + searchInput + "&type=tv"
+        // console.log(requestUrl);
+        // getAnimeInfo();
     }
 } 
 
