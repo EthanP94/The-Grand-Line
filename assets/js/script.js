@@ -1,5 +1,6 @@
 let showResults = document.querySelector('.results');
 let searchButton = document.querySelector('.search-button');
+let top10Button = document.querySelector('.top10-btn')
 
 function handleSearchFromSubmit (event) {
     event.preventDefault();
@@ -16,4 +17,11 @@ function handleSearchFromSubmit (event) {
     location.assign(queryString);
 }   
 
+
+function redirectTop() {
+    let queryString = './search.html?q=top-10';
+    location.assign(queryString)
+}
+
 searchButton.addEventListener('click', handleSearchFromSubmit);
+top10Button.addEventListener('click', redirectTop);
