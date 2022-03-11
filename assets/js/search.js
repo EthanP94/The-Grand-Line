@@ -3,6 +3,7 @@ let searchButton = document.querySelector('.search-btn')
 let contentContainer = document.querySelector('.content-container')
 let top10Button = document.querySelector('.top10-btn')
 
+
 let userInputValue;
 let requestUrl = "https://api.jikan.moe/v4/anime?q=" + userInputValue + "&type=tv"
 
@@ -32,23 +33,24 @@ function getAnimeInfo() {
             } else {
                 animeRating.textContent = "Rating: " + apiData[i].score;
             }
-            animeRating.classList.add("anime-info");
+            animeRating.classList.add("anime-info", "center");
             let animeGenres = document.createElement('h6');
             let totalGenres = [];
             for (let j=0; j< apiData[i].genres.length; j++) {
                 totalGenres.push(apiData[i].genres[j].name);
             }
             animeGenres.textContent = "Genres: " + totalGenres.join(" ");
-            animeGenres.classList.add("anime-info")
+            animeGenres.classList.add("anime-info", "center")
             let animeStatus = document.createElement('h6');
             animeStatus.textContent = "Status: " + apiData[i].status;
-            animeStatus.classList.add("anime-info")
+            animeStatus.classList.add("anime-info", "center")
             let animeSyn = document.createElement('p');
             animeSyn.textContent = apiData[i].synopsis;
             animeSyn.classList.add("anime-synopsis", "center");
-            let merchButton = createElement('button');
+            let merchButton = document.createElement('button');
             merchButton.textContent = "Buy Merch!";
-            contentContainer.append(animeTitle, animeImage, animeRating, animeGenres, animeStatus, animeSyn);
+            merchButton.classList.add("merch-btn","center")
+            contentContainer.append(animeTitle, animeImage, animeRating, animeGenres, animeStatus, animeSyn, merchButton);
         }
         });
     
@@ -65,17 +67,10 @@ genresListEl.addEventListener("click", function(event) {
         let genre = event.target.getAttribute("data-genre")
         console.log(genre)
     
-    requestUrl = "https://api.jikan.moe/v4/anime?genre=" 
-    // fetch(requestUrl)
-    // .then(function(response){
-    //     return response.json()
-    // })
-    // .then(function(data){
-    //     console.log(data)
-    // })
+    requestUrl = "https://api.jikan.moe/v4/anime?genres=" + genre
+        console.log(requestUrl);
     getAnimeInfo()
     }
-
 
 })
 
@@ -86,9 +81,11 @@ function getSearch() {
         requestUrl = "https://api.jikan.moe/v4/anime?limit=10&order_by=score&sort=desc"
         getAnimeInfo();
     } else {
-        contentContainer.textContent= "";
-        requestUrl = "https://api.jikan.moe/v4/anime?q=" + searchInput + "&type=tv"
-        getAnimeInfo();
+        // searchInput = userInput.value;
+        contentContainer.textContent= "Let'search for some anime~";
+        // requestUrl = "https://api.jikan.moe/v4/anime?q=" + searchInput + "&type=tv"
+        // console.log(requestUrl);
+        // getAnimeInfo();
     }
 } 
 
@@ -96,23 +93,6 @@ getSearch();
 
 
 searchButton.addEventListener("click", function() {
- feature/watch-merch-buttons
-    contentContainer.textContent = "";
-    getImage();
-});
-
-let merchButton = document.querySelector(".jsMerchFunction")
-
-let merchPage = document.querySelector("#user-input").value
-
-
-merchButton.addEventListener("click", function() {
-
-
-});
-
-let merchUrl = "https://store.crunchyroll.com/collections/" + merchPage
-=======
     contentContainer.textContent = " ";
     userInputValue = userInput.value
     let splitName = userInputValue.split(" ")
@@ -129,4 +109,15 @@ top10Button.addEventListener('click', function() {
     requestUrl = "https://api.jikan.moe/v4/anime?limit=10&order_by=score&sort=desc"
     getAnimeInfo();
 })
- main
+ 
+
+let merchButton = document.querySelector(".jsMerchFunction")
+
+
+merchButton.addEventListener("click", function() {
+  
+    let merchUrl = "https://store.crunchyroll.com/collections/" + userInputValue
+    
+document.location(merchUrl)
+
+});

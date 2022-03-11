@@ -1,3 +1,44 @@
+<<<<<<< HEAD
 
 
 
+=======
+h1, h2 {
+    font-family: 'Permanent Marker', cursive; 
+    display: flex;
+    text-shadow: 3px 3px #000000;
+    padding-left: 15px;
+}
+
+.top-bar {
+    background-color: transparent;
+    font-family: 'Permanent Marker', cursive ;
+    color: aliceblue;
+    
+}
+
+.search-menu {
+    display: flex;
+    flex-wrap: wrap;
+    width: 800px;
+    margin: 0 auto;
+    align-items: center;
+    height: 80vh;
+}
+
+.search-menu li {
+    flex:1 0;
+    list-style: none;
+    margin: 5px;
+    font-family: 'Permanent Marker', cursive; 
+}
+
+.search-button {
+    color: aliceblue;
+    font-family: 'Permanent Marker', cursive;
+}
+
+input {
+    
+}
+>>>>>>> 292fa983b66a132dd6e2f8c7754bf8da5433cdc5
