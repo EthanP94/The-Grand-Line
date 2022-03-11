@@ -2,13 +2,14 @@ let userInput = document.querySelector('#user-input')
 let searchButton = document.querySelector('.search-btn')
 let contentContainer = document.querySelector('.content-container')
 
-function getImage() {
-    let userInputValue = userInput.value
+let userInputValue = userInput.value
     let splitName = userInputValue.split(" ")
     if (splitName.length > 1) {
         userInputValue = splitName.join("+")
     }
     let requestUrl = "https://api.jikan.moe/v4/anime?q=" + userInputValue + "&type=tv"
+
+function getAnimeInfo() {
     
     fetch(requestUrl)
         .then(function (response) {
@@ -70,19 +71,31 @@ genresListEl.addEventListener("click", function(event) {
         let genre = event.target.getAttribute("data-genre")
         console.log(genre)
     
-    let genreRequestUrl = "https://api.jikan.moe/v4/anime?genre=" + genre + ""
-    fetch(genreRequestUrl)
-    .then(function(response){
-        return response.json()
-    })
-    .then(function(data){
-        console.log(data)
-    })
+    requestUrl = "https://api.jikan.moe/v4/anime?genre=" + genre + ""
+    // fetch(requestUrl)
+    // .then(function(response){
+    //     return response.json()
+    // })
+    // .then(function(data){
+    //     console.log(data)
+    // })
+    getAnimeInfo()
     }
 
 
 })
 
+function getSearch() {
+    let searchInput = document.location.search.split("=").pop()
+    if (searchInput === "top-10") {
+        requestUrl = "https://api.jikan.moe/v4/anime?limit=10&order_by=score&sort=desc"
+        getAnimeInfo();
+    } else {
+        return searchInput
+    }
+} 
+
+getSearch();
 
 
 searchButton.addEventListener("click", function() {
