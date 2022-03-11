@@ -3,6 +3,7 @@ let searchButton = document.querySelector('.search-btn')
 let contentContainer = document.querySelector('.content-container')
 let top10Button = document.querySelector('.top10-btn')
 
+
 let userInputValue;
 let requestUrl = "https://api.jikan.moe/v4/anime?q=" + userInputValue + "&type=tv"
 
@@ -90,23 +91,6 @@ getSearch();
 
 
 searchButton.addEventListener("click", function() {
-    contentContainer.textContent = "";
-    getAnimeInfo();
-});
-
-let merchButton = document.querySelector(".jsMerchFunction")
-
-let merchPage = document.querySelector("#user-input").value
-
-
-// merchButton.addEventListener("click", function() {
-
-
-// });
-
-let merchUrl = "https://store.crunchyroll.com/collections/" + merchPage
-
-searchButton.addEventListener("click", function() {
     contentContainer.textContent = " ";
     userInputValue = userInput.value
     let splitName = userInputValue.split(" ")
@@ -123,3 +107,15 @@ top10Button.addEventListener('click', function() {
     requestUrl = "https://api.jikan.moe/v4/anime?limit=10&order_by=score&sort=desc"
     getAnimeInfo();
 })
+ 
+
+let merchButton = document.querySelector(".jsMerchFunction")
+
+
+merchButton.addEventListener("click", function() {
+  
+    let merchUrl = "https://store.crunchyroll.com/collections/" + userInputValue
+    
+document.location(merchUrl)
+
+});
