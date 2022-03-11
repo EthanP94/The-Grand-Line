@@ -1,5 +1,6 @@
 let showResults = document.querySelector('.results');
 let searchButton = document.querySelector('.search-button');
+let top10Button = document.querySelector('.top10-btn')
 
 function handleSearchFromSubmit (event) {
     event.preventDefault();
@@ -16,7 +17,8 @@ function handleSearchFromSubmit (event) {
     location.assign(queryString);
 }   
 
-searchButton.addEventListener('click', handleSearchFromSubmit);
+
+
 // homepage search button above
 
 let backgrounds = ['./assets/images/backgrounds/demon-slayer.png',
@@ -34,3 +36,13 @@ document.body.style.backgroundSize = "cover";
 
 
     
+
+
+function redirectTop() {
+    let queryString = './search.html?q=top-10';
+    location.assign(queryString)
+}
+
+searchButton.addEventListener('click', handleSearchFromSubmit);
+top10Button.addEventListener('click', redirectTop);
+
