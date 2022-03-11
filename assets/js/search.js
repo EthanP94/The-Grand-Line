@@ -32,23 +32,24 @@ function getAnimeInfo() {
             } else {
                 animeRating.textContent = "Rating: " + apiData[i].score;
             }
-            animeRating.classList.add("anime-info");
+            animeRating.classList.add("anime-info", "center");
             let animeGenres = document.createElement('h6');
             let totalGenres = [];
             for (let j=0; j< apiData[i].genres.length; j++) {
                 totalGenres.push(apiData[i].genres[j].name);
             }
             animeGenres.textContent = "Genres: " + totalGenres.join(" ");
-            animeGenres.classList.add("anime-info")
+            animeGenres.classList.add("anime-info", "center")
             let animeStatus = document.createElement('h6');
             animeStatus.textContent = "Status: " + apiData[i].status;
-            animeStatus.classList.add("anime-info")
+            animeStatus.classList.add("anime-info", "center")
             let animeSyn = document.createElement('p');
             animeSyn.textContent = apiData[i].synopsis;
             animeSyn.classList.add("anime-synopsis", "center");
-            let merchButton = createElement('button');
+            let merchButton = document.createElement('button');
             merchButton.textContent = "Buy Merch!";
-            contentContainer.append(animeTitle, animeImage, animeRating, animeGenres, animeStatus, animeSyn);
+            merchButton.classList.add("merch-btn","center")
+            contentContainer.append(animeTitle, animeImage, animeRating, animeGenres, animeStatus, animeSyn, merchButton);
         }
         });
     
@@ -89,9 +90,8 @@ getSearch();
 
 
 searchButton.addEventListener("click", function() {
- feature/watch-merch-buttons
     contentContainer.textContent = "";
-    getImage();
+    getAnimeInfo();
 });
 
 let merchButton = document.querySelector(".jsMerchFunction")
@@ -99,13 +99,14 @@ let merchButton = document.querySelector(".jsMerchFunction")
 let merchPage = document.querySelector("#user-input").value
 
 
-merchButton.addEventListener("click", function() {
+// merchButton.addEventListener("click", function() {
 
 
-});
+// });
 
 let merchUrl = "https://store.crunchyroll.com/collections/" + merchPage
-=======
+
+searchButton.addEventListener("click", function() {
     contentContainer.textContent = " ";
     userInputValue = userInput.value
     let splitName = userInputValue.split(" ")
@@ -122,4 +123,3 @@ top10Button.addEventListener('click', function() {
     requestUrl = "https://api.jikan.moe/v4/anime?limit=10&order_by=score&sort=desc"
     getAnimeInfo();
 })
- main
