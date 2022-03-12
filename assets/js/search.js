@@ -2,6 +2,7 @@ let userInput = document.querySelector('#user-input')
 let searchButton = document.querySelector('.search-btn')
 let contentContainer = document.querySelector('.content-container')
 let top10Button = document.querySelector('.top10-btn')
+let searchFormEl = document.querySelector('.search-form')
 
 
 let userInputValue;
@@ -82,7 +83,7 @@ function getSearch() {
         getAnimeInfo();
     } else {
         // searchInput = userInput.value;
-        contentContainer.textContent= "Let'search for some anime~";
+        contentContainer.textContent= " ";
         // requestUrl = "https://api.jikan.moe/v4/anime?q=" + searchInput + "&type=tv"
         // console.log(requestUrl);
         // getAnimeInfo();
@@ -109,7 +110,7 @@ top10Button.addEventListener('click', function() {
     requestUrl = "https://api.jikan.moe/v4/anime?limit=10&order_by=score&sort=desc"
     getAnimeInfo();
 })
- 
+
 
 let merchButton = document.querySelector(".jsMerchFunction")
 
