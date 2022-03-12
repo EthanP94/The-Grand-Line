@@ -31,8 +31,6 @@ let randomEndpoint = backgrounds[Math.floor(Math.random()*backgrounds.length)]
 document.body.style.background = "url("+randomEndpoint+")"
 document.body.style.backgroundSize = "cover";
 
-
-
 function redirectTop() {
     let queryString = './search.html?q=top-10';
     location.assign(queryString)
