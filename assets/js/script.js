@@ -12,12 +12,16 @@ function handleSearchFromSubmit (event) {
         return;
     }
 
-    let queryString = './search.html?q=' + searchInputVal ;
+    let queryString = './search.html?q=' + searchInputVal;
 
     location.assign(queryString);
-}   
+}
+    
+    searchButton.addEventListener('click', handleSearchFromSubmit);
 
-let backgrounds = ['./assets/images/backgrounds/demon-slayer.png',
+
+
+    let backgrounds = ['./assets/images/backgrounds/demon-slayer.png',
 './assets/images/backgrounds/berserk-2.png',
 './assets/images/backgrounds/one-piece.png',
 './assets/images/backgrounds/wp2771916.jpg'];
@@ -34,6 +38,6 @@ function redirectTop() {
     location.assign(queryString)
 }
 
-searchButton.addEventListener('click', handleSearchFromSubmit);
+
 top10Button.addEventListener('click', redirectTop);
 
