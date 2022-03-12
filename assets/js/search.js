@@ -47,16 +47,33 @@ function getAnimeInfo() {
             let animeSyn = document.createElement('p');
             animeSyn.textContent = apiData[i].synopsis;
             animeSyn.classList.add("anime-synopsis", "center");
-            let merchButton = document.createElement('button');
-            merchButton.textContent = "Buy Merch!";
-            merchButton.classList.add("merch-btn","center")
+            let merchButton = document.createElement('button')
+            merchButton.textContent = "Buy Merch!"
+            merchButton.classList.add("merch-btn", "center");
             contentContainer.append(animeTitle, animeImage, animeRating, animeGenres, animeStatus, animeSyn, merchButton);
         }
         });
     
 }
 
+function getSearch() {
+    let searchInput = document.location.search.split("=").pop()
+    if (searchInput === "top-10") {
+        contentContainer.textContent= "";
+        requestUrl = "https://api.jikan.moe/v4/anime?limit=10&order_by=score&sort=desc"
+        getAnimeInfo();
+    } 
+    if (searchInput) {
+        searchInput = document.location.search.split("=").pop()
+        requestUrl = "https://api.jikan.moe/v4/anime?q=" + searchInput + "&type=tv"
+        console.log(requestUrl);
+        getAnimeInfo();
+    } else {
+        contentContainer.textContent = "Please search for an anime!"
+    }
+} 
 
+getSearch();
 
 let genresListEl = document.querySelector('.genres-list')
 
@@ -66,31 +83,12 @@ genresListEl.addEventListener("click", function(event) {
     if (event.target.matches("a")) {
         let genre = event.target.getAttribute("data-genre")
         console.log(genre)
-    
-    requestUrl = "https://api.jikan.moe/v4/anime?genres=" + genre
+        requestUrl = "https://api.jikan.moe/v4/anime?genres=" + genre
         console.log(requestUrl);
-    getAnimeInfo()
+        getAnimeInfo()
     }
 
 })
-
-function getSearch() {
-    let searchInput = document.location.search.split("=").pop()
-    if (searchInput === "top-10") {
-        contentContainer.textContent= "";
-        requestUrl = "https://api.jikan.moe/v4/anime?limit=10&order_by=score&sort=desc"
-        getAnimeInfo();
-    } else {
-        // searchInput = userInput.value;
-        contentContainer.textContent= "Let'search for some anime~";
-        // requestUrl = "https://api.jikan.moe/v4/anime?q=" + searchInput + "&type=tv"
-        // console.log(requestUrl);
-        // getAnimeInfo();
-    }
-} 
-
-getSearch();
-
 
 searchButton.addEventListener("click", function() {
     contentContainer.textContent = " ";
@@ -110,14 +108,12 @@ top10Button.addEventListener('click', function() {
     getAnimeInfo();
 })
  
-
-let merchButton = document.querySelector(".jsMerchFunction")
+let merchButton = document.querySelector('.jsMerchFunction')
 
 
 merchButton.addEventListener("click", function() {
-  
-    let merchUrl = "https://store.crunchyroll.com/collections/" + userInputValue
+  userInputValue = userInput.value
+    let merchUrl = "https://store.crunchyroll.com/collections/shop?q=" + userInputValue.toLowerCase().split(" ").join("%20")
     
-document.location(merchUrl)
-
+location.assign(merchUrl)
 });
