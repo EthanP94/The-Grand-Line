@@ -25,14 +25,9 @@ h1, h2 {
     flex:1 0;
     list-style: none;
     margin: 5px;
-    font-family: 'Permanent Marker', cursive; 
 }
 
 .search-button {
     color: aliceblue;
     font-family: 'Permanent Marker', cursive;
-}
-
-input {
-    
 }
