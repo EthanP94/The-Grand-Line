@@ -12,15 +12,13 @@ function handleSearchFromSubmit (event) {
         return;
     }
 
-    let queryString = './search.html?q=' + searchInputVal;
-
     location.assign(queryString);
 }
+
+    let queryString = './search.html?q=' + searchInputVal;
     
-    searchButton.addEventListener('click', handleSearchFromSubmit);
-
-
-
+   
+    
     let backgrounds = ['./assets/images/backgrounds/demon-slayer.png',
 './assets/images/backgrounds/berserk-2.png',
 './assets/images/backgrounds/one-piece.png',
@@ -38,6 +36,6 @@ function redirectTop() {
     location.assign(queryString)
 }
 
-
+searchButton.addEventListener('click', handleSearchFromSubmit);
 top10Button.addEventListener('click', redirectTop);
 
