@@ -50,8 +50,9 @@ function redirectGenres() {
    console.log(genresUrl);
     if (genresUrl.target.matches("a")) {
         let genre = target.getAttribute("data-genre");
+        let genreQueryString = 
         console.log(genre);
-        genresUrl = "https://api.jikan.moe/v4/anime?genres=" + 
+        genresUrl = "https://api.jikan.moe/v4/anime?genres=" + genreQueryString
         console.log(genresUrl);
         redirectGenres()
     }
