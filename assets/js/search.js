@@ -22,7 +22,7 @@ function getAnimeInfo() {
             let animeTitle = document.createElement('h2');
             animeTitle.classList.add("anime-title", "center");
             if (!apiData[i].title_english) {
-                animeTitle.textContent = apiData[i].title
+                 animeTitle.textContent = apiData[i].title
             } else {
                 animeTitle.textContent = apiData[i].title_english
             }
@@ -60,9 +60,9 @@ function getAnimeInfo() {
         });
     
 }
-
+let searchInput;
 function getSearch() {
-    let searchInput = document.location.search.split("=").pop()
+    searchInput = document.location.search.split("=").pop()
     if (searchInput === "top-10") {
         contentContainer.textContent= "";
         requestUrl = "https://api.jikan.moe/v4/anime?limit=10&order_by=score&sort=desc"
@@ -144,6 +144,10 @@ contentContainer.addEventListener("click", function(event) {
     if (event.target.matches(".merch-btn")) {
         console.log("I made it")
         userInputValue = merchInput.value;
+        if (userInputValue === ""){
+            userInputValue = searchInput.split("%20").join("-")
+            console.log(userInputValue)
+        }
     let merchUrl = "https://store.crunchyroll.com/collections/" + userInputValue.toLowerCase().split(" ").join("-")
     console.log(merchUrl)
 
@@ -158,8 +162,11 @@ let watchHereInput = document.querySelector('#user-input')
 contentContainer.addEventListener("click", function(event) {
    
     if (event.target.matches(".watch-btn")) {
-        console.log("I made it")
+        console.log("I made it mom")
         userInputValue = watchHereInput.value;
+        if (userInputValue === ""){
+            userInputValue = searchInput
+        }
     let watchUrl = "https://www.crunchyroll.com/search?from=search&q=" + userInputValue.toLowerCase().split(" ").join("-")
     console.log(watchUrl)
 
