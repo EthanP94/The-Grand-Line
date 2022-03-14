@@ -25,7 +25,7 @@ let backgrounds = ['./assets/images/backgrounds/demon-slayer.png',
 let randomEndpoint = backgrounds[Math.floor(Math.random()*backgrounds.length)]
 
 document.body.style.background = "url("+randomEndpoint+")"
-document.body.style.backgroundSize = "cover";
+// document.body.style.backgroundSize = "cover";
 
 let genresListEl = document.querySelector('.genres-homepage')
 
