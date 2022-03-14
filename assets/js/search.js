@@ -151,7 +151,7 @@ contentContainer.addEventListener("click", function(event) {
     if (event.target.matches(".watch-btn")) {
         console.log("I made it")
         userInputValue = watchHereInput.value;
-    let watchUrl = "https://crunchyroll.com/" + userInputValue.toLowerCase().split(" ").join("-")
+    let watchUrl = "https://www.crunchyroll.com/search?from=search&q=" + userInputValue.toLowerCase().split(" ").join("-")
     console.log(watchUrl)
 
 window.open(watchUrl, "_blank")
