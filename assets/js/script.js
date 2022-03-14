@@ -28,7 +28,7 @@ document.body.style.backgroundSize = "cover";
 
 
 // Genres list redirects homepage to specific list of genre the user clicked
-let genresListEl = document.querySelector('.genres-homepage')
+
 
 // genresListEl.addEventListener("click", function(event) {
 //     contentContainer.textContent = " ";
@@ -43,32 +43,23 @@ let genresListEl = document.querySelector('.genres-homepage')
 
 // })
 
-genresListEl.addEventListener("click", )
+let genresListEl = document.querySelector('.genres-homepage')
 
-function redirectGenres() {
-   let genresUrl = "https://api.jikan.moe/v4/anime?genres=";
-   console.log(genresUrl);
-    if (genresUrl.target.matches("a")) {
-        let genre = target.getAttribute("data-genre");
-        let genreQueryString = 
+function redirectGenres(event) {
+    console.log(event.target);
+    if (event.target.matches("a")) {
+        let genre = event.target.getAttribute("data-genre");
+
         console.log(genre);
-        genresUrl = "https://api.jikan.moe/v4/anime?genres=" + genreQueryString
-        console.log(genresUrl);
-        redirectGenres()
+        genresUrl = "./search.html?q=" + genre;
+        console.log(genresUrl)
+        location.assign(genresUrl)
+    
     }
 }
 
+genresListEl.addEventListener("click", redirectGenres);
 
-function redirectGenres() {
-    let genresUrl = "" 
-    location.assign(genresUrl)
-}
-
-//    if (genresUrl.target.matches("a")){
-//        genresUrl.target.getAttribute("data-genre")
-//        console.log(genresUrl);
-//        redirectGenres()
-//    }
 
 
 

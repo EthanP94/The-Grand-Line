@@ -54,21 +54,9 @@
 }
 
 #logo {
-<<<<<<< HEAD
-    width: 50%;
-    height: 30px;
-    z-index: 100; 
-    background-color: #252e30;
-}
-
-.menu-text:hover {
-    text-shadow: 3px 3px 10px #58a090;
-    transition: all 0.3s ease-in-out;
-=======
     width: 40px;
 }
 
 .top-bar li {
     font-family: 'Permanent Marker', cursive;
->>>>>>> d334ebf0ae82e51f6b7ee4922a7b64b801b237c1
 }

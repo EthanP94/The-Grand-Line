@@ -70,8 +70,14 @@ function getSearch() {
     } 
     if (searchInput) {
         searchInput = document.location.search.split("=").pop()
-        requestUrl = "https://api.jikan.moe/v4/anime?q=" + searchInput + "&type=tv"
-        console.log(requestUrl);
+        if (!isNaN(parseInt(searchInput))) {
+            console.log("number");
+            requestUrl = "https://api.jikan.moe/v4/anime?genres=" + searchInput + "&type=tv"
+
+        } else {
+            requestUrl = "https://api.jikan.moe/v4/anime?q=" + searchInput + "&type=tv"
+            console.log("string");
+        }
         getAnimeInfo();
     } else {
         contentContainer.textContent = "Please search for an anime!"
