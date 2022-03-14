@@ -50,7 +50,10 @@ function getAnimeInfo() {
             let merchButton = document.createElement('button')
             merchButton.textContent = "Buy Merch!"
             merchButton.classList.add("merch-btn", "center");
-            contentContainer.append(animeTitle, animeImage, animeRating, animeGenres, animeStatus, animeSyn, merchButton);
+            let watchHereButton = document.createElement('button')
+            watchHereButton.textContent = "Watch Here!"
+            watchHereButton.classList.add("watch-btn", "center");
+            contentContainer.append(animeTitle, animeImage, animeRating, animeGenres, animeStatus, animeSyn, merchButton, watchHereButton);
         }
         });
     
@@ -139,3 +142,5 @@ window.open(merchUrl, "_blank")
     }
  
 });
+
+
