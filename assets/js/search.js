@@ -136,7 +136,8 @@ contentContainer.addEventListener("click", function(event) {
         console.log("I made it")
         userInputValue = merchInput.value;
         if (userInputValue === ""){
-            userInputValue = searchInput
+            userInputValue = searchInput.split("%20").join("-")
+            console.log(userInputValue)
         }
     let merchUrl = "https://store.crunchyroll.com/collections/" + userInputValue.toLowerCase().split(" ").join("-")
     console.log(merchUrl)
@@ -152,7 +153,7 @@ let watchHereInput = document.querySelector('#user-input')
 contentContainer.addEventListener("click", function(event) {
    
     if (event.target.matches(".watch-btn")) {
-        console.log("I made it")
+        console.log("I made it mom")
         userInputValue = watchHereInput.value;
         if (userInputValue === ""){
             userInputValue = searchInput
