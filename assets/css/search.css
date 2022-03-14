@@ -1,6 +1,6 @@
-.top-bar {
+.top-bar { 
     background-color: teal;
-}
+ } 
 
 .content-container {
     margin-top: 40px;
@@ -20,6 +20,12 @@
     margin: 10px 20px;
 }
 
+.music-btn {
+    visibility: hidden;
+    margin: 7px 0;
+    border-radius: 5px;
+}
+
 .merch-btn {
     display: block;
     margin: 0 auto;
@@ -30,6 +36,14 @@
     color: white;
 }
 
+.music-btn:hover,
 .merch-btn:hover {
     cursor: pointer;
+}
+
+#logo {
+    width: 50%;
+    height: 30px;
+    z-index: 100; 
+    background-color: #252e30;
 }

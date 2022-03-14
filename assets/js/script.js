@@ -11,12 +11,11 @@ function handleSearchFromSubmit (event) {
         console.error(' You need to put the name of the anime');
         return;
     }
-
-    let queryString = './search.html?q=' + searchInputVal ;
-
+    let queryString = './search.html?q=' + searchInputVal;
     location.assign(queryString);
-}   
-
+}
+   
+    
 let backgrounds = ['./assets/images/backgrounds/demon-slayer.png',
 './assets/images/backgrounds/berserk-2.png',
 './assets/images/backgrounds/one-piece.png',
