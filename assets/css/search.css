@@ -1,5 +1,5 @@
 .top-bar { 
-    background-color: teal;
+    background-color: transparent;
  } 
 
 .content-container {
@@ -57,6 +57,34 @@
     width: 40px;
 }
 
+#logo:hover {
+    cursor: pointer;
+}
+
 .top-bar li {
     font-family: 'Permanent Marker', cursive;
+}
+
+.top-bar:hover{
+    cursor: pointer;
+}
+
+.dropdown {
+    background-color: transparent !important;
+}
+
+.dropdown ul {
+    background-color: #000000;
+}
+
+.dropdown li a {
+    color: black !important;
+}
+
+.dropdown li a:hover{ 
+    cursor: pointer;
+}
+
+.search-button:hover {
+    cursor: pointer;
 }
