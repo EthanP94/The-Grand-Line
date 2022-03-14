@@ -21,7 +21,6 @@
 }
 
 .music-btn {
-    visibility: hidden;
     margin: 7px 0;
     border-radius: 5px;
 }
@@ -78,6 +77,10 @@
 }
 
 .dropdown li a {
+    color: white;
+}
+
+.genres {
     color: black !important;
 }
 

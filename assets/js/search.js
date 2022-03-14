@@ -2,8 +2,6 @@ let userInput = document.querySelector('#user-input')
 let searchButton = document.querySelector('.search-btn')
 let contentContainer = document.querySelector('.content-container')
 let top10Button = document.querySelector('.top10-btn')
-let searchFormEl = document.querySelector('.search-form')
-
 let musicButton = document.querySelector('.music-btn')
 
 let userInputValue;
@@ -22,7 +20,7 @@ function getAnimeInfo() {
             let animeTitle = document.createElement('h2');
             animeTitle.classList.add("anime-title", "center");
             if (!apiData[i].title_english) {
-                 animeTitle.textContent = apiData[i].title
+                animeTitle.textContent = apiData[i].title
             } else {
                 animeTitle.textContent = apiData[i].title_english
             }
@@ -52,17 +50,14 @@ function getAnimeInfo() {
             let merchButton = document.createElement('button')
             merchButton.textContent = "Buy Merch!"
             merchButton.classList.add("merch-btn", "center");
-            let watchHereButton = document.createElement('button')
-            watchHereButton.textContent = "Watch Here!"
-            watchHereButton.classList.add("watch-btn", "center");
-            contentContainer.append(animeTitle, animeImage, animeRating, animeGenres, animeStatus, animeSyn, merchButton, watchHereButton);
+            contentContainer.append(animeTitle, animeImage, animeRating, animeGenres, animeStatus, animeSyn, merchButton);
         }
         });
     
 }
-let searchInput;
+
 function getSearch() {
-    searchInput = document.location.search.split("=").pop()
+    let searchInput = document.location.search.split("=").pop()
     if (searchInput === "top-10") {
         contentContainer.textContent= "";
         requestUrl = "https://api.jikan.moe/v4/anime?limit=10&order_by=score&sort=desc"
@@ -70,16 +65,8 @@ function getSearch() {
     } 
     if (searchInput) {
         searchInput = document.location.search.split("=").pop()
-        if (!isNaN(parseInt(searchInput))) {
-            console.log("number");
-            requestUrl = "https://api.jikan.moe/v4/anime?genres=" + searchInput + "&type=tv"
-            // let merchBtn = document.querySelector(".merch-btn");
-            // merchBtn.style.display = "none";
-
-        } else {
-            requestUrl = "https://api.jikan.moe/v4/anime?q=" + searchInput + "&type=tv"
-            console.log("string");
-        }
+        requestUrl = "https://api.jikan.moe/v4/anime?q=" + searchInput + "&type=tv"
+        console.log(requestUrl);
         getAnimeInfo();
     } else {
         contentContainer.textContent = "Please search for an anime!"
@@ -103,9 +90,9 @@ genresListEl.addEventListener("click", function(event) {
 
 })
 
-
 let isClicked = false;
-const music = new Audio('./assets/music/gurenge.mp3');
+let randomNum = Math.floor(Math.random() * 4)
+const music = new Audio('./assets/music/'+ randomNum + '.mp3');
 musicButton.addEventListener("click", function() {
     if (isClicked) {
         isClicked = false;
@@ -119,7 +106,6 @@ musicButton.addEventListener("click", function() {
 })
 
 searchButton.addEventListener("click", function() {
-    musicButton.style.visibility = "visible";
     contentContainer.textContent = " ";
     userInputValue = userInput.value
     let splitName = userInputValue.split(" ")
@@ -137,41 +123,12 @@ top10Button.addEventListener('click', function() {
     getAnimeInfo();
 })
  
+let merchButton = document.querySelector('.jsMerchFunction')
 
 
-let merchInput = document.querySelector('#user-input')
-
-contentContainer.addEventListener("click", function(event) {
-   
-    if (event.target.matches(".merch-btn")) {
-        console.log("I made it")
-        userInputValue = merchInput.value;
-        if (userInputValue === ""){
-            userInputValue = searchInput.split("%20").join("-")
-            console.log(userInputValue)
-        }
-    let merchUrl = "https://store.crunchyroll.com/collections/" + userInputValue.toLowerCase().split(" ").join("-")
-    console.log(merchUrl)
-
-window.open(merchUrl, "_blank")
-    }
- 
+merchButton.addEventListener("click", function() {
+  userInputValue = userInput.value
+    let merchUrl = "https://store.crunchyroll.com/collections/shop?q=" + userInputValue.toLowerCase().split(" ").join("%20")
+    
+location.assign(merchUrl)
 });
-
-
-let watchHereInput = document.querySelector('#user-input')
-
-contentContainer.addEventListener("click", function(event) {
-   
-    if (event.target.matches(".watch-btn")) {
-        console.log("I made it mom")
-        userInputValue = watchHereInput.value;
-        if (userInputValue === ""){
-            userInputValue = searchInput
-        }
-    let watchUrl = "https://www.crunchyroll.com/search?from=search&q=" + userInputValue.toLowerCase().split(" ").join("-")
-    console.log(watchUrl)
-
-window.open(watchUrl, "_blank")
-    }
-    });
