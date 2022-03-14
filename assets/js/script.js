@@ -1,7 +1,7 @@
 let showResults = document.querySelector('.results');
 let searchButton = document.querySelector('.search-button');
 let top10Button = document.querySelector('.top10-btn')
-
+let musicButton = document.querySelector('.music-btn')
 
 function handleSearchFromSubmit (event) {
     event.preventDefault();
@@ -27,23 +27,6 @@ let randomEndpoint = backgrounds[Math.floor(Math.random()*backgrounds.length)]
 document.body.style.background = "url("+randomEndpoint+")"
 // document.body.style.backgroundSize = "cover";
 
-
-// Genres list redirects homepage to specific list of genre the user clicked
-
-
-// genresListEl.addEventListener("click", function(event) {
-//     contentContainer.textContent = " ";
-//     console.log(event.target)
-//     if (event.target.matches("a")) {
-//         let genre = event.target.getAttribute("data-genre")
-//         console.log(genre)
-//         requestUrl = "https://api.jikan.moe/v4/anime?genres=" + genre
-//         console.log(requestUrl);
-//         getAnimeInfo()
-//     }
-
-// })
-
 let genresListEl = document.querySelector('.genres-homepage')
 
 function redirectGenres(event) {
@@ -60,9 +43,6 @@ function redirectGenres(event) {
 }
 
 genresListEl.addEventListener("click", redirectGenres);
-
-
-
 
 function redirectTop() {
     let queryString = './search.html?q=top-10';
@@ -88,9 +68,17 @@ function generateQuote() {
 } 
 generateQuote()
 
-    
-
-
-
-
-
+let isClicked = false;
+let randomNum = Math.floor(Math.random() * 4)
+const music = new Audio('./assets/music/'+ randomNum + '.mp3');
+musicButton.addEventListener("click", function() {
+    if (isClicked) {
+        isClicked = false;
+        music.pause();
+        musicButton.value = "⏵︎"
+    } else {
+        isClicked = true;
+        music.play();
+        musicButton.value = "⏸︎"
+    }
+})

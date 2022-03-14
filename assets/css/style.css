@@ -47,6 +47,11 @@ h3 {
     border-radius: 20px;
 }
 
+.music-btn {
+    margin: 7px 0;
+    border-radius: 5px;
+}
+
 .results {
     margin: 0 auto;
     border: 1px solid pink;
