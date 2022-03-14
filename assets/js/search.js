@@ -135,6 +135,9 @@ contentContainer.addEventListener("click", function(event) {
     if (event.target.matches(".merch-btn")) {
         console.log("I made it")
         userInputValue = merchInput.value;
+        if (userInputValue === ""){
+            userInputValue = searchInput
+        }
     let merchUrl = "https://store.crunchyroll.com/collections/" + userInputValue.toLowerCase().split(" ").join("-")
     console.log(merchUrl)
 
