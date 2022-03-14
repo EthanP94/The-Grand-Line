@@ -50,14 +50,18 @@ function getAnimeInfo() {
             let merchButton = document.createElement('button')
             merchButton.textContent = "Buy Merch!"
             merchButton.classList.add("merch-btn", "center");
-            contentContainer.append(animeTitle, animeImage, animeRating, animeGenres, animeStatus, animeSyn, merchButton);
+            let watchHereButton = document.createElement('button')
+            watchHereButton.textContent = "Watch Here!"
+            watchHereButton.classList.add("watch-btn", "center");
+            contentContainer.append(animeTitle, animeImage, animeRating, animeGenres, animeStatus, animeSyn, merchButton, watchHereButton);
+            
         }
         });
     
 }
-
+let searchInput;
 function getSearch() {
-    let searchInput = document.location.search.split("=").pop()
+    searchInput = document.location.search.split("=").pop()
     if (searchInput === "top-10") {
         contentContainer.textContent= "";
         requestUrl = "https://api.jikan.moe/v4/anime?limit=10&order_by=score&sort=desc"
@@ -123,12 +127,38 @@ top10Button.addEventListener('click', function() {
     getAnimeInfo();
 })
  
-let merchButton = document.querySelector('.jsMerchFunction')
+let merchInput = document.querySelector('#user-input')
 
+ contentContainer.addEventListener("click", function(event) {
 
-merchButton.addEventListener("click", function() {
-  userInputValue = userInput.value
-    let merchUrl = "https://store.crunchyroll.com/collections/shop?q=" + userInputValue.toLowerCase().split(" ").join("%20")
-    
-location.assign(merchUrl)
-});
+     if (event.target.matches(".merch-btn")) {
+         console.log("I made it")
+         userInputValue = merchInput.value;
+         if (userInputValue === ""){
+            userInputValue = searchInput.split("%20").join("-")
+            console.log(userInputValue)
+        }
+     let merchUrl = "https://store.crunchyroll.com/collections/" + userInputValue.toLowerCase().split(" ").join("-")
+     console.log(merchUrl)
+
+ window.open(merchUrl, "_blank")
+     }
+
+ }); 
+
+ let watchHereInput = document.querySelector('#user-input')
+
+ contentContainer.addEventListener("click", function(event) {
+
+     if (event.target.matches(".watch-btn")) {
+         console.log("I made it")
+         userInputValue = watchHereInput.value;
+        if (userInputValue === ""){
+            userInputValue = searchInput
+        }
+         let watchUrl = "https://www.crunchyroll.com/search?from=search&q=" + userInputValue.toLowerCase().split(" ").join("-")
+     console.log(watchUrl)
+
+ window.open(watchUrl, "_blank")
+     }
+     }); 
