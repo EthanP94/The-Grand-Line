@@ -50,7 +50,10 @@ function getAnimeInfo() {
             let merchButton = document.createElement('button')
             merchButton.textContent = "Buy Merch!"
             merchButton.classList.add("merch-btn", "center");
-            contentContainer.append(animeTitle, animeImage, animeRating, animeGenres, animeStatus, animeSyn, merchButton);
+            let watchHereButton = document.createElement('button')
+            watchHereButton.textContent = "Watch Here!"
+            watchHereButton.classList.add("watch-btn", "center");
+            contentContainer.append(animeTitle, animeImage, animeRating, animeGenres, animeStatus, animeSyn, merchButton, watchHereButton);
         }
         });
     
@@ -139,3 +142,18 @@ window.open(merchUrl, "_blank")
     }
  
 });
+
+
+let watchHereInput = document.querySelector('#user-input')
+
+contentContainer.addEventListener("click", function(event) {
+   
+    if (event.target.matches(".watch-btn")) {
+        console.log("I made it")
+        userInputValue = watchHereInput.value;
+    let watchUrl = "https://www.crunchyroll.com/search?from=search&q=" + userInputValue.toLowerCase().split(" ").join("-")
+    console.log(watchUrl)
+
+window.open(watchUrl, "_blank")
+    }
+    });

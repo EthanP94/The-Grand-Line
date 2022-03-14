@@ -36,6 +36,18 @@
     color: white;
 }
 
+.watch-btn {
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px 10px;
+    background-color: black;
+    color: white;
+
+}
+
 .music-btn:hover,
 .merch-btn:hover {
     cursor: pointer;
