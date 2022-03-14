@@ -144,3 +144,16 @@ window.open(merchUrl, "_blank")
 });
 
 
+let watchHereInput = document.querySelector('#user-input')
+
+contentContainer.addEventListener("click", function(event) {
+   
+    if (event.target.matches(".watch-btn")) {
+        console.log("I made it")
+        userInputValue = watchHereInput.value;
+    let watchUrl = "https://crunchyroll.com/" + userInputValue.toLowerCase().split(" ").join("-")
+    console.log(watchUrl)
+
+window.open(watchUrl, "_blank")
+    }
+    });
