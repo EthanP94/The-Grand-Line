@@ -68,7 +68,8 @@ function generateQuote() {
 generateQuote()
 
 let isClicked = false;
-const music = new Audio('./assets/music/gurenge.mp3');
+let randomNum = Math.floor(Math.random() * 4)
+const music = new Audio('./assets/music/'+ randomNum + '.mp3');
 musicButton.addEventListener("click", function() {
     if (isClicked) {
         isClicked = false;
