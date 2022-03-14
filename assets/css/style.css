@@ -26,9 +26,8 @@ h3 {
     display: flex;
     flex-wrap: wrap;
     width: 900px;
-    margin: 0 auto;
     align-items: center;
-    height: 20vh;
+    height: 40vh;
     margin: 0px 0px 0px 700px;
 }
 
@@ -77,10 +76,12 @@ h3 {
 
 .dropdown li a:hover{ 
     cursor: pointer;
+    color: violet;
 }
 
 .search-button:hover {
     cursor: pointer;
+    color: violet;
 }
 
 .quoteContainer {
