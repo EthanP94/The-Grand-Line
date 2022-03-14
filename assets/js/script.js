@@ -61,7 +61,6 @@ function generateQuote() {
     let animeQuote = document.createElement('h3')
     animeQuote.textContent = data.quote+ " - " + data.character + " | anime: " + data.anime
     let quoteContainer = document.querySelector(".quoteContainer")
-    console.log(animeQuote)
     quoteContainer.appendChild(animeQuote)
     }) 
     
