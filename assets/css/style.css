@@ -1,8 +1,19 @@
+body {
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: auto;
+}
+
 h1, h2 {
     font-family: 'Permanent Marker', cursive; 
     display: flex;
     text-shadow: 3px 3px #000000;
     padding-left: 15px;
+}
+
+h3 {
+    font-family:'Permanent Marker', cursive;
 }
 
 .top-bar {
@@ -17,7 +28,7 @@ h1, h2 {
     width: 900px;
     margin: 0 auto;
     align-items: center;
-    height: 80vh;
+    height: 20vh;
     margin: 0px 0px 0px 700px;
 }
 
@@ -65,4 +76,10 @@ h1, h2 {
 
 .search-button:hover {
     cursor: pointer;
+}
+
+.quoteContainer {
+    text-align: center;
+    color: white;
+    text-shadow: 3px 3px black;
 }
