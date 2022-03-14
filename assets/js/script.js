@@ -1,6 +1,7 @@
 let showResults = document.querySelector('.results');
 let searchButton = document.querySelector('.search-button');
 let top10Button = document.querySelector('.top10-btn')
+let musicButton = document.querySelector('.music-btn')
 
 function handleSearchFromSubmit (event) {
     event.preventDefault();
@@ -25,6 +26,20 @@ let randomEndpoint = backgrounds[Math.floor(Math.random()*backgrounds.length)]
 
 document.body.style.background = "url("+randomEndpoint+")"
 document.body.style.backgroundSize = "cover";
+
+let isClicked = false;
+const music = new Audio('./assets/music/gurenge.mp3');
+musicButton.addEventListener("click", function() {
+    if (isClicked) {
+        isClicked = false;
+        music.pause();
+        musicButton.value = "⏵︎"
+    } else {
+        isClicked = true;
+        music.play();
+        musicButton.value = "⏸︎"
+    }
+})
 
 function redirectTop() {
     let queryString = './search.html?q=top-10';

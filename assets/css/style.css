@@ -27,6 +27,11 @@ h1, h2 {
     font-family: 'Permanent Marker', cursive; 
 }
 
+.music-btn {
+    margin: 7px 0;
+    border-radius: 5px;
+}
+
 .search-button {
     color: aliceblue;
     font-family: 'Permanent Marker', cursive;

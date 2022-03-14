@@ -105,7 +105,6 @@ musicButton.addEventListener("click", function() {
 })
 
 searchButton.addEventListener("click", function() {
-    musicButton.style.visibility = "visible";
     contentContainer.textContent = " ";
     userInputValue = userInput.value
     let splitName = userInputValue.split(" ")
