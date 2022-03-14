@@ -3,7 +3,6 @@ let searchButton = document.querySelector('.search-button');
 let top10Button = document.querySelector('.top10-btn')
 let musicButton = document.querySelector('.music-btn')
 
-
 function handleSearchFromSubmit (event) {
     event.preventDefault();
 
@@ -28,19 +27,22 @@ let randomEndpoint = backgrounds[Math.floor(Math.random()*backgrounds.length)]
 document.body.style.background = "url("+randomEndpoint+")"
 document.body.style.backgroundSize = "cover";
 
-let isClicked = false;
-const music = new Audio('./assets/music/gurenge.mp3');
-musicButton.addEventListener("click", function() {
-    if (isClicked) {
-        isClicked = false;
-        music.pause();
-        musicButton.value = "⏵︎"
-    } else {
-        isClicked = true;
-        music.play();
-        musicButton.value = "⏸︎"
+let genresListEl = document.querySelector('.genres-homepage')
+
+function redirectGenres(event) {
+    console.log(event.target);
+    if (event.target.matches("a")) {
+        let genre = event.target.getAttribute("data-genre");
+
+        console.log(genre);
+        genresUrl = "./search.html?q=" + genre;
+        console.log(genresUrl)
+        location.assign(genresUrl)
+    
     }
-})
+}
+
+genresListEl.addEventListener("click", redirectGenres);
 
 function redirectTop() {
     let queryString = './search.html?q=top-10';
@@ -65,9 +67,16 @@ function generateQuote() {
 } 
 generateQuote()
 
-    
-
-
-
-
-
+let isClicked = false;
+const music = new Audio('./assets/music/gurenge.mp3');
+musicButton.addEventListener("click", function() {
+    if (isClicked) {
+        isClicked = false;
+        music.pause();
+        musicButton.value = "⏵︎"
+    } else {
+        isClicked = true;
+        music.play();
+        musicButton.value = "⏸︎"
+    }
+})

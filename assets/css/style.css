@@ -28,17 +28,17 @@ h1, h2 {
     font-family: 'Permanent Marker', cursive; 
 }
 
-.music-btn {
-    margin: 7px 0;
-    border-radius: 5px;
-}
-
 .search-button {
     background-color: aliceblue;
     color: black;
     font-family: 'Permanent Marker', cursive;
     padding: 5px;
     border-radius: 20px;
+}
+
+.music-btn {
+    margin: 7px 0;
+    border-radius: 5px;
 }
 
 .results {

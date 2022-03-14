@@ -77,6 +77,10 @@
 }
 
 .dropdown li a {
+    color: white;
+}
+
+.genres {
     color: black !important;
 }
 
