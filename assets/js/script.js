@@ -51,10 +51,16 @@ function redirectGenres() {
     if (genresUrl.target.matches("a")) {
         let genre = target.getAttribute("data-genre");
         console.log(genre);
-        genresUrl = "https://api.jikan.moe/v4/anime?genres=" + genre
+        genresUrl = "https://api.jikan.moe/v4/anime?genres=" + 
         console.log(genresUrl);
         redirectGenres()
     }
+}
+
+
+function redirectGenres() {
+    let genresUrl = "" 
+    location.assign(genresUrl)
 }
 
 //    if (genresUrl.target.matches("a")){
