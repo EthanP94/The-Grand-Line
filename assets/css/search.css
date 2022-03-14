@@ -1,3 +1,7 @@
+body {
+    background-color: lightblue;
+}
+
 .top-bar { 
     background-color: transparent;
  } 
@@ -47,9 +51,20 @@
 
 }
 
+.top-bar-right {
+    background-color: transparent;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+.music-btn {
+    background-color: transparent;
+}
+
 .music-btn:hover,
 .merch-btn:hover {
     cursor: pointer;
+    color: violet;
 }
 
 #logo {
@@ -64,6 +79,11 @@
     font-family: 'Permanent Marker', cursive;
 }
 
+.top-bar-right ul {
+    background-color: transparent;
+    margin: 0 auto;
+}
+
 .top-bar:hover{
     cursor: pointer;
 }
@@ -73,11 +93,11 @@
 }
 
 .dropdown ul {
-    background-color: #000000;
+    background-color: white;
 }
 
 .dropdown li a {
-    color: white;
+    color: black;
 }
 
 .genres {
@@ -86,8 +106,14 @@
 
 .dropdown li a:hover{ 
     cursor: pointer;
+    color: violet;
 }
 
 .search-button:hover {
     cursor: pointer;
+    color: violet;
+}
+
+.menu ul li {
+    background-color: transparent;
 }
