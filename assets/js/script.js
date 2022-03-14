@@ -20,12 +20,12 @@ function handleSearchFromSubmit (event) {
 let backgrounds = ['./assets/images/backgrounds/demon-slayer.png',
 './assets/images/backgrounds/berserk-2.png',
 './assets/images/backgrounds/one-piece.png',
-'./assets/images/backgrounds/wp2771916.jpg'];
+'./assets/images/backgrounds/aesthetic-anime.jpg'];
 
 let randomEndpoint = backgrounds[Math.floor(Math.random()*backgrounds.length)]
 
 document.body.style.background = "url("+randomEndpoint+")"
-document.body.style.backgroundSize = "cover";
+// document.body.style.backgroundSize = "cover";
 
 let genresListEl = document.querySelector('.genres-homepage')
 
@@ -56,10 +56,10 @@ let animeQuoteUrl = 'https://animechan.vercel.app/api/random';
 function generateQuote() {
     fetch(animeQuoteUrl)
     .then(response => response.json())
-    .then(data => {console.log(data.quote)
+    .then(data => {console.log(data)
     
     let animeQuote = document.createElement('h3')
-    animeQuote.textContent = data.quote
+    animeQuote.textContent = data.quote+ " - " + data.character + " | anime: " + data.anime
     let quoteContainer = document.querySelector(".quoteContainer")
     quoteContainer.appendChild(animeQuote)
     }) 
