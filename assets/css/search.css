@@ -1,5 +1,5 @@
 .top-bar { 
-    background-color: teal;
+    background-color: transparent;
  } 
 
 .content-container {
@@ -35,7 +35,55 @@
     color: white;
 }
 
+.watch-btn {
+    display: block;
+    margin: 0 auto;
+    margin-top: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px 10px;
+    background-color: black;
+    color: white;
+
+}
+
 .music-btn:hover,
 .merch-btn:hover {
+    cursor: pointer;
+}
+
+#logo {
+    width: 40px;
+}
+
+#logo:hover {
+    cursor: pointer;
+}
+
+.top-bar li {
+    font-family: 'Permanent Marker', cursive;
+}
+
+.top-bar:hover{
+    cursor: pointer;
+}
+
+.dropdown {
+    background-color: transparent !important;
+}
+
+.dropdown ul {
+    background-color: #000000;
+}
+
+.dropdown li a {
+    color: black !important;
+}
+
+.dropdown li a:hover{ 
+    cursor: pointer;
+}
+
+.search-button:hover {
     cursor: pointer;
 }

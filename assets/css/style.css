@@ -14,10 +14,11 @@ h1, h2 {
 .search-menu {
     display: flex;
     flex-wrap: wrap;
-    width: 800px;
+    width: 900px;
     margin: 0 auto;
     align-items: center;
     height: 80vh;
+    margin: 0px 0px 0px 700px;
 }
 
 .search-menu li {
@@ -33,9 +34,11 @@ h1, h2 {
 }
 
 .search-button {
-    color: aliceblue;
+    background-color: aliceblue;
+    color: black;
     font-family: 'Permanent Marker', cursive;
-    background-color: #000000;
+    padding: 5px;
+    border-radius: 20px;
 }
 
 .results {
@@ -44,4 +47,27 @@ h1, h2 {
     border-radius: 5px;
     padding: 5px 10px;
     font-family: 'Permanent Marker', cursive;
+}
+
+
+.dropdown {
+    background-color: transparent !important;
+}
+
+.dropdown ul {
+    background-color: #000000;
+}
+
+.dropdown li a {
+    color: aliceblue !important;
+    text-shadow: 3px 3px #000000;
+    font-size: 20px;
+}
+
+.dropdown li a:hover{ 
+    cursor: pointer;
+}
+
+.search-button:hover {
+    cursor: pointer;
 }

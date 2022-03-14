@@ -3,6 +3,7 @@ let searchButton = document.querySelector('.search-button');
 let top10Button = document.querySelector('.top10-btn')
 let musicButton = document.querySelector('.music-btn')
 
+
 function handleSearchFromSubmit (event) {
     event.preventDefault();
 
@@ -48,4 +49,25 @@ function redirectTop() {
 
 searchButton.addEventListener('click', handleSearchFromSubmit);
 top10Button.addEventListener('click', redirectTop);
+
+let animeQuoteUrl = 'https://animechan.vercel.app/api/random';
+function generateQuote() {
+    fetch(animeQuoteUrl)
+    .then(response => response.json())
+    .then(data => {console.log(data.quote)
+    
+    let animeQuote = document.createElement('h3')
+    animeQuote.textContent = data.quote
+    let quoteContainer = document.querySelector(".quoteContainer")
+    quoteContainer.appendChild(animeQuote)
+    }) 
+    
+} 
+generateQuote()
+
+    
+
+
+
+
 
