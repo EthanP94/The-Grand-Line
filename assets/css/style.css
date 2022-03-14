@@ -30,4 +30,5 @@ h1, h2 {
 .search-button {
     color: aliceblue;
     font-family: 'Permanent Marker', cursive;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
