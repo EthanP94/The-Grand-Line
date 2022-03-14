@@ -31,29 +31,40 @@ document.body.style.backgroundSize = "cover";
 // Genres list redirects homepage to specific list of genre the user clicked
 let genresListEl = document.querySelector('.genres-homepage')
 
-genresListEl.addEventListener("click", function(event) {
-    contentContainer.textContent = " ";
-    console.log(event.target)
-    if (event.target.matches("a")) {
-        let genre = event.target.getAttribute("data-genre")
-        console.log(genre)
-        requestUrl = "https://api.jikan.moe/v4/anime?genres=" + genre
-        console.log(requestUrl);
-        getAnimeInfo()
+// genresListEl.addEventListener("click", function(event) {
+//     contentContainer.textContent = " ";
+//     console.log(event.target)
+//     if (event.target.matches("a")) {
+//         let genre = event.target.getAttribute("data-genre")
+//         console.log(genre)
+//         requestUrl = "https://api.jikan.moe/v4/anime?genres=" + genre
+//         console.log(requestUrl);
+//         getAnimeInfo()
+//     }
+
+// })
+
+genresListEl.addEventListener("click", )
+
+function redirectGenres() {
+   let genresUrl = "https://api.jikan.moe/v4/anime?genres=";
+   console.log(genresUrl);
+    if (genresUrl.target.matches("a")) {
+        let genre = target.getAttribute("data-genre");
+        console.log(genre);
+        genresUrl = "https://api.jikan.moe/v4/anime?genres=" + genre
+        console.log(genresUrl);
+        redirectGenres()
     }
+}
 
-})
-
-// function redirectGenres() {
-//    let requestUrl = "https://api.jikan.moe/v4/anime?q=";
-//    if (requestUrl.target.matches("a")){
-//        let genre = requestUrl.target.getAttribute("data-genre")
-//        requestUrl = "https://api.jikan.moe/v4/anime?genres=" + genre
-//        console.log(requestUrl);
+//    if (genresUrl.target.matches("a")){
+//        genresUrl.target.getAttribute("data-genre")
+//        console.log(genresUrl);
 //        redirectGenres()
 //    }
 
-// }
+
 
 function redirectTop() {
     let queryString = './search.html?q=top-10';
