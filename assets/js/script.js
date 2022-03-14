@@ -28,22 +28,6 @@ document.body.style.background = "url("+randomEndpoint+")"
 document.body.style.backgroundSize = "cover";
 
 
-// Genres list redirects homepage to specific list of genre the user clicked
-
-
-// genresListEl.addEventListener("click", function(event) {
-//     contentContainer.textContent = " ";
-//     console.log(event.target)
-//     if (event.target.matches("a")) {
-//         let genre = event.target.getAttribute("data-genre")
-//         console.log(genre)
-//         requestUrl = "https://api.jikan.moe/v4/anime?genres=" + genre
-//         console.log(requestUrl);
-//         getAnimeInfo()
-//     }
-
-// })
-
 let genresListEl = document.querySelector('.genres-homepage')
 
 function redirectGenres(event) {
