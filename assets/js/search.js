@@ -2,6 +2,8 @@ let userInput = document.querySelector('#user-input')
 let searchButton = document.querySelector('.search-btn')
 let contentContainer = document.querySelector('.content-container')
 let top10Button = document.querySelector('.top10-btn')
+let searchFormEl = document.querySelector('.search-form')
+
 let musicButton = document.querySelector('.music-btn')
 
 let userInputValue;
@@ -68,8 +70,14 @@ function getSearch() {
     } 
     if (searchInput) {
         searchInput = document.location.search.split("=").pop()
-        requestUrl = "https://api.jikan.moe/v4/anime?q=" + searchInput + "&type=tv"
-        console.log(requestUrl);
+        if (!isNaN(parseInt(searchInput))) {
+            console.log("number");
+            requestUrl = "https://api.jikan.moe/v4/anime?genres=" + searchInput + "&type=tv"
+
+        } else {
+            requestUrl = "https://api.jikan.moe/v4/anime?q=" + searchInput + "&type=tv"
+            console.log("string");
+        }
         getAnimeInfo();
     } else {
         contentContainer.textContent = "Please search for an anime!"
@@ -92,6 +100,7 @@ genresListEl.addEventListener("click", function(event) {
     }
 
 })
+
 
 let isClicked = false;
 const music = new Audio('./assets/music/gurenge.mp3');
