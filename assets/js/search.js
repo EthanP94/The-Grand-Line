@@ -2,7 +2,7 @@ let userInput = document.querySelector('#user-input')
 let searchButton = document.querySelector('.search-btn')
 let contentContainer = document.querySelector('.content-container')
 let top10Button = document.querySelector('.top10-btn')
-
+let musicButton = document.querySelector('.music-btn')
 
 let userInputValue;
 let requestUrl = "https://api.jikan.moe/v4/anime?q=" + userInputValue + "&type=tv"
@@ -90,7 +90,22 @@ genresListEl.addEventListener("click", function(event) {
 
 })
 
+let isClicked = false;
+const music = new Audio('./assets/music/gurenge.mp3');
+musicButton.addEventListener("click", function() {
+    if (isClicked) {
+        isClicked = false;
+        music.pause();
+        musicButton.value = "⏵︎"
+    } else {
+        isClicked = true;
+        music.play();
+        musicButton.value = "⏸︎"
+    }
+})
+
 searchButton.addEventListener("click", function() {
+    musicButton.style.visibility = "visible";
     contentContainer.textContent = " ";
     userInputValue = userInput.value
     let splitName = userInputValue.split(" ")
