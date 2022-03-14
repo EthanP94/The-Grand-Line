@@ -73,6 +73,8 @@ function getSearch() {
         if (!isNaN(parseInt(searchInput))) {
             console.log("number");
             requestUrl = "https://api.jikan.moe/v4/anime?genres=" + searchInput + "&type=tv"
+            // let merchBtn = document.querySelector(".merch-btn");
+            // merchBtn.style.display = "none";
 
         } else {
             requestUrl = "https://api.jikan.moe/v4/anime?q=" + searchInput + "&type=tv"
