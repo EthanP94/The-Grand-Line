@@ -123,12 +123,19 @@ top10Button.addEventListener('click', function() {
     getAnimeInfo();
 })
  
-let merchButton = document.querySelector('.jsMerchFunction')
 
 
-merchButton.addEventListener("click", function() {
-  userInputValue = userInput.value
-    let merchUrl = "https://store.crunchyroll.com/collections/shop?q=" + userInputValue.toLowerCase().split(" ").join("%20")
-    
-location.assign(merchUrl)
+let merchInput = document.querySelector('#user-input')
+
+contentContainer.addEventListener("click", function(event) {
+   
+    if (event.target.matches(".merch-btn")) {
+        console.log("I made it")
+        userInputValue = merchInput.value;
+    let merchUrl = "https://store.crunchyroll.com/collections/" + userInputValue.toLowerCase().split(" ").join("-")
+    console.log(merchUrl)
+
+window.open(merchUrl, "_blank")
+    }
+ 
 });
