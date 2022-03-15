@@ -15,7 +15,7 @@ Welcome to all things anime!
 
 ## Screenshots
 
-![grand-line-screenshot01]()
+![grand-line-screenshot01](https://raw.githubusercontent.com/EthanP94/The-Grand-Line/main/assets/images/grand-line-anime-screenshot01.JPG)
 
 
-![grand-line-screenshot02]()
+![grand-line-screenshot02](https://raw.githubusercontent.com/EthanP94/The-Grand-Line/main/assets/images/grand-line-anime-screenshot02.JPG)
