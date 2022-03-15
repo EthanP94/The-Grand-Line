@@ -61,7 +61,7 @@ function getAnimeInfo() {
 }
 let searchInput;
 function getSearch() {
-    let searchInput = document.location.search.split("=").pop()
+     searchInput = document.location.search.split("=").pop()
     if (searchInput === "top-10") {
         contentContainer.textContent= "";
         requestUrl = "https://api.jikan.moe/v4/anime?limit=10&order_by=score&sort=desc"
