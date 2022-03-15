@@ -22,20 +22,30 @@ h3 {
     font-family:'Permanent Marker', cursive;
 }
 
+.center {
+    display: block;
+    justify-content: center;
+}
+
 .search-menu {
-    display: flex;
-    flex-wrap: wrap;
     width: 900px;
+    display: flex;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
     height: 40vh;
-    margin: 0px 0px 0px 700px;
+    margin: 0 auto;
+}
+
+.results {
+    width: 500px;
+    margin-right: 10px !important;
 }
 
 .search-menu li {
-    flex:1 0;
     list-style: none;
-    margin: 5px;
     font-family: 'Permanent Marker', cursive; 
+    display: flex;
 }
 
 .search-button {
@@ -88,8 +98,5 @@ h3 {
     text-align: center;
     color: white;
     text-shadow: 3px 3px black;
-}
-
-@media screen and (max-width:420px) {
-    
+    position: fixed;
 }
