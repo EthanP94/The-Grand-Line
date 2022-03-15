@@ -79,9 +79,11 @@ h3 {
     color: violet;
 }
 
+.music-btn:hover,
+.top-bar-left ul li a:hover,
 .search-button:hover {
     cursor: pointer;
-    color: violet;
+    color: violet !important;
 }
 
 .quoteContainer {
