@@ -61,7 +61,7 @@ function getAnimeInfo() {
 }
 let searchInput;
 function getSearch() {
-    searchInput = document.location.search.split("=").pop()
+    let searchInput = document.location.search.split("=").pop()
     if (searchInput === "top-10") {
         contentContainer.textContent= "";
         requestUrl = "https://api.jikan.moe/v4/anime?limit=10&order_by=score&sort=desc"
@@ -69,13 +69,20 @@ function getSearch() {
     } 
     if (searchInput) {
         searchInput = document.location.search.split("=").pop()
-        requestUrl = "https://api.jikan.moe/v4/anime?q=" + searchInput + "&type=tv"
-        console.log(requestUrl);
+        if (!isNaN(parseInt(searchInput))) {
+            console.log("number");
+            requestUrl = "https://api.jikan.moe/v4/anime?genres=" + searchInput + "&type=tv"
+
+
+        } else {
+            requestUrl = "https://api.jikan.moe/v4/anime?q=" + searchInput + "&type=tv"
+            console.log("string");
+        }
         getAnimeInfo();
     } else {
-        contentContainer.textContent = "Please search for an anime!"
+        contentContainer.textContent = " "
     }
-} 
+}
 
 getSearch();
 

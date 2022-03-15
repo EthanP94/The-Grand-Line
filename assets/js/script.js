@@ -1,8 +1,10 @@
+// Variables for elements
 let showResults = document.querySelector('.results');
 let searchButton = document.querySelector('.search-button');
 let top10Button = document.querySelector('.top10-btn')
 let musicButton = document.querySelector('.music-btn')
 
+// This function allows user to input an anime name, and access the anime database API on their search.
 function handleSearchFromSubmit (event) {
     event.preventDefault();
 
@@ -16,7 +18,7 @@ function handleSearchFromSubmit (event) {
     location.assign(queryString);
 }
    
-    
+// These variables and function allows the homepage to generate random images in the background when user refreshes the homepage  
 let backgrounds = ['./assets/images/backgrounds/demon-slayer.png',
 './assets/images/backgrounds/berserk-2.png',
 './assets/images/backgrounds/one-piece.png',
@@ -27,6 +29,8 @@ let randomEndpoint = backgrounds[Math.floor(Math.random()*backgrounds.length)]
 document.body.style.background = "url("+randomEndpoint+")"
 document.body.style.backgroundSize = "cover";
 
+
+// Genres function redirects user on corresponding genres list to search page
 let genresListEl = document.querySelector('.genres-homepage')
 
 function redirectGenres(event) {
@@ -44,6 +48,8 @@ function redirectGenres(event) {
 
 genresListEl.addEventListener("click", redirectGenres);
 
+
+// This function redirects uesr to top ten anime list on the search page
 function redirectTop() {
     let queryString = './search.html?q=top-10';
     location.assign(queryString)
@@ -52,6 +58,8 @@ function redirectTop() {
 searchButton.addEventListener('click', handleSearchFromSubmit);
 top10Button.addEventListener('click', redirectTop);
 
+
+// This function generates random quotes from API on homepage
 let animeQuoteUrl = 'https://animechan.vercel.app/api/random';
 function generateQuote() {
     fetch(animeQuoteUrl)
@@ -67,6 +75,8 @@ function generateQuote() {
 } 
 generateQuote()
 
+
+// This function generates random music stored in the web application and allows the user to interact with play button to play music
 let isClicked = false;
 let randomNum = Math.floor(Math.random() * 4)
 const music = new Audio('./assets/music/'+ randomNum + '.mp3');
