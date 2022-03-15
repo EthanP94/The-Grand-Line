@@ -29,6 +29,12 @@ body {
     border-radius: 5px;
 }
 
+.search-btn {
+    padding: 5px;
+    border: 3px solid black;
+    border-radius: 5px;
+}
+
 .merch-btn {
     display: block;
     margin: 0 auto;
@@ -64,7 +70,9 @@ body {
 }
 
 .music-btn:hover,
-.merch-btn:hover {
+.merch-btn:hover,
+.watch-btn:hover,
+ .search-btn:hover {
     cursor: pointer;
     color: violet;
 }
@@ -75,6 +83,8 @@ body {
 
 #logo:hover {
     cursor: pointer;
+    color: violet;
+    box-shadow: 0 0 15px violet;
 }
 
 .top-bar li {
