@@ -1,3 +1,4 @@
+// Variables for elements
 let userInput = document.querySelector('#user-input')
 let searchButton = document.querySelector('.search-btn')
 let contentContainer = document.querySelector('.content-container')
@@ -7,6 +8,7 @@ let musicButton = document.querySelector('.music-btn')
 let userInputValue;
 let requestUrl = "https://api.jikan.moe/v4/anime?q=" + userInputValue + "&type=tv"
 
+// function to fetch information from jikan api based on user search, create elements, and append them to the page
 function getAnimeInfo() {
     
     fetch(requestUrl)
@@ -60,6 +62,7 @@ function getAnimeInfo() {
     
 }
 let searchInput;
+// function to pull information from homepage in order to generate the search page
 function getSearch() {
     searchInput = document.location.search.split("=").pop()
     if (searchInput === "top-10") {
@@ -80,7 +83,7 @@ function getSearch() {
 getSearch();
 
 let genresListEl = document.querySelector('.genres-list')
-
+// clicking on genre will match the button to the correct API URL in order to fetch and display information to the page
 genresListEl.addEventListener("click", function(event) {
     contentContainer.textContent = " ";
     console.log(event.target)
@@ -95,8 +98,10 @@ genresListEl.addEventListener("click", function(event) {
 })
 
 let isClicked = false;
+// music is chosen randomly
 let randomNum = Math.floor(Math.random() * 4)
 const music = new Audio('./assets/music/'+ randomNum + '.mp3');
+// clicking on the play button will play/pause the music
 musicButton.addEventListener("click", function() {
     if (isClicked) {
         isClicked = false;
@@ -108,7 +113,7 @@ musicButton.addEventListener("click", function() {
         musicButton.value = "⏸︎"
     }
 })
-
+// clicking on search button will use the user input to fetch data of that anime searched
 searchButton.addEventListener("click", function() {
     contentContainer.textContent = " ";
     userInputValue = userInput.value
@@ -121,6 +126,7 @@ searchButton.addEventListener("click", function() {
     getAnimeInfo();
 });
 
+// clicking on top10 button will pull information on the top 10 anime and display on page
 top10Button.addEventListener('click', function() {
     contentContainer.textContent= " ";
     requestUrl = "https://api.jikan.moe/v4/anime?limit=10&order_by=score&sort=desc"
@@ -128,7 +134,7 @@ top10Button.addEventListener('click', function() {
 })
  
 let merchInput = document.querySelector('#user-input')
-
+// clicking on merch buttons will generate the merch link to bring the user to the merch website of that anime
  contentContainer.addEventListener("click", function(event) {
 
      if (event.target.matches(".merch-btn")) {
@@ -147,7 +153,7 @@ let merchInput = document.querySelector('#user-input')
  }); 
 
  let watchHereInput = document.querySelector('#user-input')
-
+// clicking on watch buttons will generate the merch link to bring the user to the streaming website of that anime
  contentContainer.addEventListener("click", function(event) {
 
      if (event.target.matches(".watch-btn")) {

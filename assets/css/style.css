@@ -1,6 +1,7 @@
 body {
-    background-size: cover;
+    background-size: cover !important;
     background-repeat: no-repeat;
+    background-position: center;
     width: 100%;
     height: auto;
 }
@@ -20,11 +21,6 @@ h3 {
     background-color: transparent;
     color: aliceblue;
     font-family:'Permanent Marker', cursive;
-}
-
-.center {
-    display: block;
-    justify-content: center;
 }
 
 .search-menu {
